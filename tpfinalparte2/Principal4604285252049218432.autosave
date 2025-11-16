@@ -1,0 +1,95 @@
+ class Juego {
+  constructor() {
+    this.cantidadCajas = 12;
+    this.cajas = [];
+    for (let i = 0; i < this.cantidadCajas; i++) {
+      this.cajas[i] = new Caja(random(10, width - 10), -i * 50);
+    }
+this.escenarios = new Escenarios();    
+    this.margot = new Margot(this.escenarios.piso1.y);
+  }
+mostrar() {
+      this.escenarios.mostrar();
+  for (let i = 0; i < this.cajas.length; i++) {
+      this.cajas[i].mover();
+      this.cajas[i].mostrar();
+    }
+    this.chocar();
+    this.margot.mostrar();
+  }
+  chocar() {
+    for (let i = 0; i < this.cajas.length; i++) {
+      if (this.margot.x < this.cajas[i].x + this.cajas[i].w &&
+          this.margot.x + this.margot.w > this.cajas[i].x &&
+          this.margot.y < this.cajas[i].y + this.cajas[i].h &&
+          this.margot.y + this.margot.h > this.cajas[i].y) {
+        this.cajas[i].y = -this.cajas[i].h;
+        this.cajas[i].x = random(10, width - 10);
+        this.margot.vida.perder();
+      }   }}
+  teclaPresionada(keyCode){
+  this.margot.teclaPresionada(keyCode); }}
+  
+   dibujar (){
+    if (this.estado ==="inicio") {
+      this.pantallaInicio();
+    }
+    else if (this.estado ==="jugando") {
+      this.pantallaJuego();
+    }
+    else if (this.estado ==="creditos") {
+      this.pantallaCreditos ();
+    }
+    }
+    pantallaInicio (){
+      fill(255,224,254,100);
+      rect(0,0width,height);
+    
+      fill(242,288,120);
+      textSize(50);
+      text ("El Espacape de Margot",200,200);
+      
+      fill (12,19,31);
+      textSize (20);
+      text ("INSTRUCCIONES: MARGOT SE ENCUENTRA 
+      ENCERRADA DENTRO DEL ROPERO, NECESITA, ATRAVEZAR LOS 
+      ESTANTES, A TRVÉS DE LAS ESCALERAS, HASTA LLEGAR A LA PUERTA
+      PARA LOGRAR ESCAPAR Y GANAR EL JUEGO.  EL OBJETIVO ES QUE LOGRE 
+      LLEGAR CON VIDA, PUESTO QUE ATRAVIEZA VARIOS OBSTACULOS QUE DEBE
+      ESQUIVAR",600, 350);
+    }
+ }
+if (this.estado ==="jugando"){
+  this.imagenFondo.dibujar();
+  this.margot.mostrar ();
+  this.vidas.mostrar ();
+    }
+    if (this.estado === "Pantalla de Ceditos");
+    this.margot.ganarJuego();
+       fill (255,224,254,100);
+      rect (0,0,width,height);
+      fill(242,288,120);
+      textSize(50);
+      text ("Trabajo Final Etapa 2, comisión 1, decente José Luis Bugiolachi, Alumna: Karen Quevedo",600,400);
+    
+  }
+  ganarJuego(){
+    if (this.margot)
+    this.puerta.x > x && this.puerta.x < x + w && this.puerta.y > y && this.puerta.y < y + h;
+    this.margot.ganaJuego;
+    this.juego.reiniciar;
+   
+  }
+  perderJuego (){
+      this.vidas--; 
+    if (this.vidas < 0) this.vidas = 0;
+    this.estado= "inicio";
+    
+  }
+  reiniciar (){
+ this.estado = "inicio";
+ 
+ }
+  iniciarJuego(){
+     this.estado = "jugando";
+  }
